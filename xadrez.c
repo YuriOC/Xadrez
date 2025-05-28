@@ -1,8 +1,53 @@
 #include <stdio.h>
 
+//Recursividade
+void movTorre(int casas)
+{
+    if (casas > 0)
+    {
+        printf("Torre anda uma casa para direita. \n");
+        movTorre(casas - 1);
+    }
+}
+
+//Recursividade com loops aninhados
+void movBispo(int casas)
+{
+    for (int i = 0; i < casas; i++)
+    {
+        printf("Bispo anda uma casa para cima. \n");
+        for (int j = 0; j < 1; j++)
+        {
+            printf("Bispo anda uma casa para a esquerda. \n");
+        }
+    }
+}
+
+//Recursividade
+void movRainha(int casas)
+{
+    if (casas > 0)
+    {
+        printf("Rainha anda uma casa para esquerda \n");
+        movRainha(casas - 1);
+    }
+}
+
+//Recursividade
+void movCavalo(int casas)
+{
+    if (casas > 0)
+    {
+        printf("Cavalo anda uma casa para cima. \n");
+        printf("Cavalo anda uma casa para cima. \n");
+        printf("Cavalo anda uma casa para direita. \n");
+        movCavalo(casas - 1);
+    }
+}
+
 int main()
 {
-    //variaveis
+    // variaveis
     int escolha;
     int casas;
     int i = 0;
@@ -15,49 +60,29 @@ int main()
     printf("4. Cavalo \n");
     scanf("%d", &escolha);
 
-    //escolha da peca
+    // escolha da peca
     switch (escolha)
     {
     case 1:
 
-        while (i < 5){
-            printf("Torre anda uma casa para direita. \n");
-            i++;
-        }
+        movTorre(5);
 
         break;
 
     case 2:
 
-        do{
-            printf("Bispo anda uma casa para cima e direita \n");
-            i++;
-        } while (i < 5);
-
+        movBispo(5);
         break;
 
     case 3:
 
-        for (i = 0; i < 8; i++){
-            printf("Rainha anda uma casa para esquerda \n");
-        }
+        movRainha(8);
         break;
 
     case 4:
 
-    for (i = 0; i < 1; i++)
-    {
-        int j = 0;
-        while (j < 2)
-        {
-            printf("Cavalo anda uma casa para baixo \n");
-            j++;
-        }
-
-        printf("Cavalo anda uma casa para a esquerda \n");
-    }
-
-    break;
+        movCavalo(1);
+        break;
 
     default:
         printf("Número inválido. \n");
